@@ -1871,7 +1871,7 @@ class format_arg_store
  private:
   static const size_t num_args = sizeof...(Args);
   static const size_t num_named_args = detail::count_named_args<Args...>();
-  static const bool is_packed = num_args <= detail::max_packed_args;
+  static const bool is_packed = false; /* num_args <= detail::max_packed_args; */   
 
   using value_type = conditional_t<is_packed, detail::value<Context>,
                                    basic_format_arg<Context>>;
